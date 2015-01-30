@@ -32,6 +32,8 @@ namespace BorderlessWindow
             ResizeInProcess = false;
         }
 
+        #region move
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (!(Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)))
@@ -46,12 +48,15 @@ namespace BorderlessWindow
             this.Cursor = null;
         }
 
+        #endregion
+
+        #region resize
+
         private void InitResizing(object sender, MouseButtonEventArgs e)
         {
             var senderRect = sender as Grid;
             if (senderRect == null) return;
 
-            //Direction = DirectionHelper.Get(senderRect.Tag.ToString());
             ResizeInProcess = true;
             senderRect.CaptureMouse();
         }
@@ -61,7 +66,6 @@ namespace BorderlessWindow
             var senderRect = sender as Grid;
             if (senderRect == null) return;
 
-            //Direction = ResizeDirection.None;
             ResizeInProcess = false;
             senderRect.ReleaseMouseCapture();
         }
@@ -73,15 +77,12 @@ namespace BorderlessWindow
             if (senderRect == null) return;
 
             senderRect.CaptureMouse();
-            //if (senderRect.Cursor.Equals(Cursors.SizeWE))
             if (senderRect.Tag.ToString().Contains("Left") || senderRect.Tag.ToString().Contains("Right"))
             {
                 var x = e.GetPosition(this).X + 5;
                 if (senderRect.Tag.ToString().Contains("Left"))
-                //if (Direction.Equals(ResizeDirection.Left))
                 {
-                    if (this.Width <= x)
-                        return;
+                    if (this.Width <= x) return;
                     this.Width -= x;
                     this.Left += x;
                 }
@@ -89,15 +90,12 @@ namespace BorderlessWindow
                     if (x > 0)
                         this.Width = x;
             }
-            //else if (senderRect.Cursor.Equals(Cursors.SizeNS))
             if (senderRect.Tag.ToString().Contains("Top") || senderRect.Tag.ToString().Contains("Bottom"))
             {
                 var y = e.GetPosition(this).Y + 5;
                 if (senderRect.Tag.ToString().Contains("Top"))
-                //if (Direction.Equals(ResizeDirection.Top))
                 {
-                    if (this.Height <= y)
-                        return;
+                    if (this.Height <= y) return;
                     this.Height -= y;
                     this.Top += y;
                 }
@@ -106,7 +104,10 @@ namespace BorderlessWindow
                         this.Height = y;
             }
         }
+
+        #endregion
     }
+
 
     //// http://stackoverflow.com/questions/4628882/wpf-window-setbounds
     //private IntPtr _handle;

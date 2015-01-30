@@ -4,6 +4,13 @@
         Title="MainWindow" Height="350" Width="525"
                 WindowStyle="None" AllowsTransparency="True"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp">
+    <Window.Resources>
+        <Style x:Key="BorderGridStyle" TargetType="{x:Type Grid}">
+            <EventSetter Event="MouseLeftButtonDown" Handler="InitResizing" />
+            <EventSetter Event="MouseLeftButtonUp" Handler="EndResizing" />
+            <EventSetter Event="MouseMove" Handler="Resize" />
+        </Style>
+    </Window.Resources>
     <Border>
         <!--<Border BorderThickness="2" BorderBrush="Blue">-->
         <Grid>
@@ -17,34 +24,19 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Column="1" Grid.Row="1">
                 <TextBlock Text="Hello World" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
-            
-        <Grid Tag="Left" Width="10" Grid.Column="0" Grid.Row="1"  Cursor="SizeWE" Background="BlueViolet"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
 
-        <Grid Tag="LeftTop" Width="10" Height="10" Cursor="SizeNWSE" Background="Orange"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="Top" Grid.Row="0" Grid.Column="1" Cursor="SizeNS" Height="10" Background="SeaGreen"
-                       MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="TopRight" Width="10" Height="10" Grid.Column="2" Cursor="SizeNESW" Background="Orange"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="Right" Width="10" Grid.Column="2" Grid.Row="1"  Cursor="SizeWE" Background="RoyalBlue"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="RightBottom" Width="10" Height="10" Grid.Row="2" Grid.Column="2" Cursor="SizeNWSE" Background="Orange"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="Bottom" Grid.Row="2" Grid.Column="1" Cursor="SizeNS" Height="10" Background="LimeGreen"
-                       MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-
-        <Grid Tag="BottomLeft" Width="10" Height="10" Grid.Row="2" Cursor="SizeNESW" Background="Orange"
-                  MouseLeftButtonDown="InitResizing" MouseLeftButtonUp="EndResizing" MouseMove="Resize" />
-    </Grid>
+            <Grid Tag="Left" Width="10" Grid.Column="0" Grid.Row="1"  Cursor="SizeWE" Background="BlueViolet" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="LeftTop" Width="10" Height="10" Cursor="SizeNWSE" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="Top" Grid.Row="0" Grid.Column="1" Cursor="SizeNS" Height="10" Background="SeaGreen" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="TopRight" Width="10" Height="10" Grid.Column="2" Cursor="SizeNESW" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="Right" Width="10" Grid.Column="2" Grid.Row="1"  Cursor="SizeWE" Background="RoyalBlue" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="RightBottom" Width="10" Height="10" Grid.Row="2" Grid.Column="2" Cursor="SizeNWSE" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="Bottom" Grid.Row="2" Grid.Column="1" Cursor="SizeNS" Height="10" Background="LimeGreen" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Tag="BottomLeft" Width="10" Height="10" Grid.Row="2" Cursor="SizeNESW" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
+        </Grid>
     </Border>
 </Window>
