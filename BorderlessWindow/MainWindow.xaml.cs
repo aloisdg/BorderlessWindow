@@ -107,4 +107,34 @@ namespace BorderlessWindow
             }
         }
     }
+
+    //// http://stackoverflow.com/questions/4628882/wpf-window-setbounds
+    //private IntPtr _handle;
+    //private void SetBounds(int left, int top, int width, int height)
+    //{
+    //    if (_handle == IntPtr.Zero)
+    //        _handle = new WindowInteropHelper(this).Handle;
+
+    //    SetWindowPos(_handle, IntPtr.Zero, left, top, width, height, 0);
+    //}
+
+    //[DllImport("user32")]
+    //static extern bool SetWindowPos(
+    //    IntPtr hWnd,
+    //    IntPtr hWndInsertAfter,
+    //    int x,
+    //    int y,
+    //    int cx,
+    //    int cy,
+    //    uint uFlags);
+
+    // source
+    // https://social.msdn.microsoft.com/Forums/vstudio/en-US/f3d6b2f9-4843-4025-b8ed-b07bcfc75a6b/wpf-borderless-form-resizing-issues?forum=wpf
+    // http://blog.creativeitp.com/posts-and-articles/c-sharp/simple-methods-to-drag-and-resize-your-c-transparent-wpf-application-with-the-windowstyle-property-set-to-none/
+
+    // doc
+    // https://msdn.microsoft.com/en-us/library/system.windows.input.cursors(v=vs.110).aspx
+
+    // other
+    // https://wpfborderless.codeplex.com/
 }
