@@ -15,28 +15,28 @@
         <!--<Border BorderThickness="2" BorderBrush="Blue">-->
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
                 <RowDefinition />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
                 <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="1" Grid.Row="1" Margin="-10">
                 <TextBlock Text="Hello World" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
 
-            <Grid Tag="Left" Width="10" Grid.Column="0" Grid.Row="1"  Cursor="SizeWE" Background="BlueViolet" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="LeftTop" Width="10" Height="10" Cursor="SizeNWSE" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="Top" Grid.Row="0" Grid.Column="1" Cursor="SizeNS" Height="10" Background="SeaGreen" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="TopRight" Width="10" Height="10" Grid.Column="2" Cursor="SizeNESW" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="Right" Width="10" Grid.Column="2" Grid.Row="1"  Cursor="SizeWE" Background="RoyalBlue" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="RightBottom" Width="10" Height="10" Grid.Row="2" Grid.Column="2" Cursor="SizeNWSE" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="Bottom" Grid.Row="2" Grid.Column="1" Cursor="SizeNS" Height="10" Background="LimeGreen" Style="{DynamicResource BorderGridStyle}" />
-            <Grid Tag="BottomLeft" Width="10" Height="10" Grid.Row="2" Cursor="SizeNESW" Background="Orange" Style="{DynamicResource BorderGridStyle}" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="1" Grid.Column="0" Tag="Left" Cursor="SizeWE" Background="BlueViolet" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="0" Grid.Column="0" Tag="LeftTop" Cursor="SizeNWSE" Background="Orange" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="0" Grid.Column="1" Tag="Top" Cursor="SizeNS" Background="SeaGreen" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="0" Grid.Column="2" Tag="TopRight" Cursor="SizeNESW" Background="Orange" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="1" Grid.Column="2" Tag="Right" Cursor="SizeWE" Background="RoyalBlue" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="2" Grid.Column="2" Tag="RightBottom" Cursor="SizeNWSE" Background="Orange" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="2" Grid.Column="1" Tag="Bottom" Cursor="SizeNS"  Background="LimeGreen" />
+            <Grid Style="{DynamicResource BorderGridStyle}" Grid.Row="2" Grid.Column="0" Tag="BottomLeft" Cursor="SizeNESW" Background="Orange" />
         </Grid>
     </Border>
 </Window>
